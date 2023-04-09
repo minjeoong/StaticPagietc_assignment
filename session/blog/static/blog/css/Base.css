@@ -1,0 +1,132 @@
+*{
+    margin:0;
+}
+
+
+.gnb{
+    display:block;
+    padding:0 0 0 15rem;
+    width: 200px;
+    height: 72px;
+}
+
+.gnb > ul{
+    list-style-type: none;
+    display:inline-block;
+    vertical-align: bottom;
+    height: 66px;
+
+}
+
+.gnb_ul > li{
+    float: left;
+    padding: 0 26px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    font-size: 13px;
+    height: 40px;
+}
+
+    /* 링크 컬러변경 */
+li > a{
+    text-decoration-line: none;
+    color: black;
+    padding-bottom: 25px;
+    border-bottom: 5px solid #000;
+}
+
+a{
+    color: #000;
+    text-decoration-line: none;
+
+}
+a:visited{
+    color:#000;
+    text-decoration-line: none;
+}
+    /* 글 타이틀  */
+.title{
+    text-align: left;
+    margin-left: 19rem;
+    margin-top:2rem;
+    margin-bottom: 2rem;
+}
+/* 새 글 */
+.newpost{
+    padding:1rem 3rem 1rem 3rem;
+    border: 1px solid #999;
+    display:inline-block;
+    margin:0 0 1rem 0 ;
+}
+.newpost:hover{
+    background-color: rgba(2, 110, 110, 0.496);
+}
+
+/* 글 자체 */
+.report{
+    text-align: center;
+}
+
+
+.report_detail{
+    
+    border-bottom: 1px solid #999;
+    border-top: 1px solid #999;
+    padding:1.2rem 0 1.2rem 0 ;
+    /* border-radius: 10px; */
+    margin:0 19.5rem 1.5rem 19rem;
+    transition: 0.5s;
+}
+.report_detail:hover{
+    background-color: #ccc;
+}
+
+
+/* 이미지와 글 컨텐츠 배치 */
+
+.image{
+    margin:1rem 1rem 0 0;
+}
+
+
+
+/*하단 페이지네이터 */
+#paginator{
+    padding:0;
+    margin-bottom: 6rem;
+
+}
+#paginator_li {
+    display: inline-block;
+    list-style-type: none;
+}
+#paginator_li > a{
+    padding: 10px;
+    border: 1px solid #999;
+}
+
+
+
+
+/* new, deit 파일 */
+.margin > *{
+    margin: 1rem;
+}
+.del{
+    padding: 3px 7px 3px 7px;
+    border: 1px solid teal;
+}
+.del:hover{
+    background-color: rgba(0, 128, 128, 0.549);
+}
+
+/* footer */
+footer{
+    height: 3rem;
+    background-color: #eee;
+    padding:2rem;
+
+}
+.foot{
+    color:#666;
+}

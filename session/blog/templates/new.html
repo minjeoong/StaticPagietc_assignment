@@ -1,11 +1,28 @@
+{% extends "base.html" %}
+{% load static%}
+
+{%block title%}
+민정이의 블로그 게시물
+{%endblock title%}
+
+{%block extrahead%}
+<!-- <link rel="stylesheet" href="{% static 'blog/css/style.css' %}"> -->
+{%endblock extrahead%}
+
+{%block content%}
+
+
 <h1>새 글 작성하기</h1>
-<form action="{%url 'create'%}" method="POST">
+<form action="{%url 'create'%}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    제목 : <input type="text" name="title" value=""/>
-    본문 : <textarea name="content" id="" cols="30" rows="10"></textarea>
-    <input type="submit" value="작성하기"/>
+    <div class="margin">
+        제목 : <input type="text" name="title" value=""/> <br>
+        본문 : <textarea name="content" id="" cols="30" rows="10"></textarea><br>
+        사진 : <input type="file" name = "image"><br>
+        <input type="submit" value="작성하기"/>
+    </div>
 </form>
 
-<a href="{% url 'home' %}">홈</a>
 
 
+{%endblock content%}

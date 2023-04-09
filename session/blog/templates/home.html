@@ -1,11 +1,64 @@
-<h1>LIKELION 11 Blog Project</h1>
-<a href="{% url 'new' %}">새 글 작성하기</a>
-<div>
-    {% for blog in blogs %}
-    <a href="{%url 'detail' blog.id %}">
-        <h2>{{blog.title}}</h2>
-        <p>{{blog.summary}}</p>
-        <p>{{blog.created_at}}</p>
+{% extends "base.html" %}
+{% load static%}
+
+{%block title%}
+민정이의 블로그 home
+{%endblock title%}
+
+{%block extrahead%}
+<!-- <link rel="stylesheet" href="{% static 'blog/css/style.css' %}"> -->
+{%endblock extrahead%}
+
+{%block content%}
+
+
+<a href="{% url 'new' %}" class = "newpost">새 글 작성하기</a>
+{% for blog in page_obj %}
+<div class="report_detail">
+    <a href="{%url 'detail' blog.id %}" class="detail_a">
+        <div class="image">
+            {% if blog.image%}
+            <img src="{{blog.image.url}}" style ="height:fit-content; width:10rem;">
+            {% endif %}
+        </div>
+        <div class="conten">
+            <h2>{{blog.title}}</h2>
+            <p>{{blog.summary}}</p>
+            <p>{{blog.created_at}}</p>
+        </div>
     </a>
-    {% endfor %}
 </div>
+{% endfor %}
+<span>
+    <ul id="paginator">
+        
+        {% if page_obj.has_previous%}
+        <li id="paginator_li"><a style="margin-right:3px;"href="?page={{page_obj.previous_page_number}}" class="">&#10094; Prev</a></li>
+        {%endif%}
+        {% for page in paginator.page_range %}
+            {%if page == page_obj.number %}
+                <li id="paginator_li"><a href="?page={{page}}" style="color:chocolate; font-weight: bold;">{{page}}</a></li>
+            {% else %}
+                <!-- 무한페이지 방지. 앞뒤로 5개씩 보이도록 -->
+                {% if page > page_obj.number|add:'-5' and page < page_obj.number|add:'5' %} 
+                <li id="paginator_li"><a href="?page={{page}}" style="color:#000" >{{page}}</a></li>
+                {% endif %}
+            {%endif%}
+        {% endfor %}
+        {% if page_obj.has_next%}
+        <li id="paginator_li"><a href="?page={{page_obj.next_page_number}}" class="">&#10095; Next</a></li>
+        {%endif%}
+
+    </ul>
+</span>
+
+
+
+<footer>
+    <p class="foot">@LIKELION 11TH / KIM MINJEONG</p>
+
+</footer>
+
+</html>
+{%endblock content%}
+
